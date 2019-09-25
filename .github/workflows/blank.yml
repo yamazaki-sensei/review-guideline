@@ -10,4 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
+      env: GITHUB_ACTION_TOKEN: ${{ secrets.GITHUB_ACTION_TOKEN }}
       run: sh fetch_and_commit.sh
+
