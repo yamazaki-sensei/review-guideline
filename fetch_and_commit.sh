@@ -19,3 +19,10 @@ fi
 git remote add origin2 "https://yamazaki-sensei:${GITHUB_TOKEN}@github.com/yamazaki-sensei/review-guideline"
 git push -u origin2 `git rev-parse --abbrev-ref HEAD`
 
+curl -X POST \
+  --data-urlencode 'payload={
+    "channel": "#hira-sandbox",
+    "username": "Review Guideline",
+    "text": "Review Guideline has been updated. https://github.com/yamazaki-sensei/review-guideline/commits/master"
+  }' \
+${SLACK_WEBHOOK_URL}
