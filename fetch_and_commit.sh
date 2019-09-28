@@ -21,7 +21,7 @@ git push -u origin2 `git rev-parse --abbrev-ref HEAD`
 
 curl -X POST \
   --data-urlencode 'payload={
-    "channel": "#hira-sandbox",
+    "channel": "#dev-ios",
     "username": "Review Guideline",
     "text": "Review Guideline has been updated. https://github.com/yamazaki-sensei/review-guideline/commits/master"
   }' \
