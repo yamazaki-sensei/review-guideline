@@ -1,4 +1,6 @@
-set -eux
+set -ux
+
+git checkout master
 
 curl  https://developer.apple.com/app-store/review/guidelines/ > results/en.html
 curl  https://developer.apple.com/jp/app-store/review/guidelines/ > results/ja.html
@@ -6,9 +8,13 @@ curl  https://developer.apple.com/jp/app-store/review/guidelines/ > results/ja.h
 git config --global user.email ohno@toreta.in
 git config --global user.name hira
 
-git checkout master
 git add .
 git commit -m "Updated at `date`"
+
+if [ $? != 0 ]; then
+  echo 'No change'
+  exit 0
+fi
 
 git remote add origin2 "https://yamazaki-sensei:${GITHUB_ACTION_TOKEN}@github.com/yamazaki-sensei/review-guideline"
 git push -u origin2 `git rev-parse --abbrev-ref HEAD`
