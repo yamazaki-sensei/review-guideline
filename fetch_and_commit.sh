@@ -12,10 +12,10 @@ git add .
 git commit -m "Updated at `date`"
 
 if [ $? != 0 ]; then
-  echo 'No change'
+  echo 'No change. Exit.'
   exit 0
 fi
 
-git remote add origin2 "https://yamazaki-sensei:${GITHUB_ACTION_TOKEN}@github.com/yamazaki-sensei/review-guideline"
+git remote add origin2 "https://yamazaki-sensei:${GITHUB_TOKEN}@github.com/yamazaki-sensei/review-guideline"
 git push -u origin2 `git rev-parse --abbrev-ref HEAD`
 
